@@ -112,3 +112,131 @@ Join our networking group and share your experience with other developers! -->
 Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo) and [broswer-use](https://github.com/browser-use/browser-use) for providing basic support for this project!
 
 OpenManus is built by contributors from MetaGPT. Huge thanks to this agent community!
+
+# Agent System
+
+一个基于TypeScript的代理系统，从Python项目迁移而来。
+
+## 功能特点
+
+- 基于代理的模块化架构
+- 支持多种代理类型
+- 类型安全的API
+- 可扩展的插件系统
+
+## 安装
+
+```bash
+# 安装依赖
+npm install
+
+# 或使用 yarn
+yarn install
+```
+
+## 使用方法
+
+### 开发模式
+
+```bash
+npm run dev
+```
+
+### 构建项目
+
+```bash
+npm run build
+```
+
+### 运行项目
+
+```bash
+npm start
+```
+
+### 运行测试
+
+```bash
+npm test
+```
+
+## 项目结构
+
+```
+src/
+├── agent/              # 代理模块
+│   ├── base.ts         # 基础代理类
+│   ├── textAgent.ts    # 文本处理代理
+│   ├── agentFactory.ts # 代理工厂
+│   └── index.ts        # 模块导出
+├── utils/              # 工具函数
+│   ├── index.ts        # 通用工具
+│   └── logger.ts       # 日志工具
+└── index.ts            # 应用入口点
+```
+
+## 代理类型
+
+### BaseAgent
+
+所有代理的基类，提供共享功能：
+
+```typescript
+const agent = new BaseAgent({
+  name: 'MyAgent',
+  description: 'A sample agent'
+});
+
+await agent.initialize();
+const result = await agent.run(input);
+await agent.cleanup();
+```
+
+### TextAgent
+
+处理文本输入的代理：
+
+```typescript
+const textAgent = new TextAgent({
+  name: 'TextProcessor',
+  description: 'Processes text input',
+  maxLength: 100,
+  language: 'en'
+});
+
+const result = await textAgent.run('Some text to process');
+```
+
+### 使用代理工厂
+
+```typescript
+import { AgentFactory, AgentType } from './agent/agentFactory';
+
+const agent = AgentFactory.createAgent(
+  AgentType.TEXT,
+  {
+    name: 'FactoryCreatedAgent',
+    maxLength: 200
+  }
+);
+```
+
+## 扩展方向
+
+- **Web界面**: 添加基于React或Vue的前端界面
+- **API服务**: 构建RESTful或GraphQL API
+- **插件系统**: 实现可扩展的插件架构
+- **云集成**: 与AWS、Azure或GCP服务集成
+- **实时功能**: 添加WebSocket支持实时通信
+
+## 贡献指南
+
+1. Fork 项目
+2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交更改 (`git commit -m 'Add some amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 创建 Pull Request
+
+## 许可证
+
+MIT

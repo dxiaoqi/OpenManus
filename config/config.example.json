@@ -1,0 +1,68 @@
+{
+  "llm": {
+    "model": "gpt-4",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "your-api-key-here",
+    "maxTokens": 4096,
+    "temperature": 0.7,
+    "vision": {
+      "model": "gpt-4-vision-preview",
+      "maxTokens": 4096,
+      "temperature": 0.7
+    },
+    "chat": {
+      "model": "gpt-3.5-turbo",
+      "maxTokens": 2048,
+      "temperature": 1.0
+    }
+  },
+  "agents": {
+    "manus": {
+      "maxSteps": 30,
+      "duplicateThreshold": 2,
+      "systemPrompt": "You are OpenManus, an all-capable AI assistant...",
+      "nextStepPrompt": "You can interact with various tools to complete tasks..."
+    },
+    "text": {
+      "maxLength": 1000,
+      "language": "en",
+      "maxSteps": 10
+    },
+    "data": {
+      "maxSteps": 20,
+      "validateInput": true,
+      "validateOutput": true,
+      "formats": {
+        "json": {
+          "schema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        "xml": {
+          "schema": {}
+        },
+        "csv": {
+          "delimiter": ",",
+          "hasHeader": true
+        }
+      }
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": "logs/app.log",
+    "maxFiles": 5,
+    "maxSize": "10m"
+  },
+  "tools": {
+    "bash": {
+      "timeout": 30000,
+      "workingDir": "./workspace"
+    },
+    "fileSystem": {
+      "rootDir": "./workspace",
+      "allowedExtensions": [".txt", ".json", ".csv", ".xml", ".md"]
+    }
+  }
+} 
