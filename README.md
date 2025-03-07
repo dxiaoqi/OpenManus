@@ -19,71 +19,6 @@ Enjoy your own agent with OpenManus!
 
 <video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
 
-## Installation
-
-1. Create a new conda environment:
-
-```bash
-conda create -n open_manus python=3.12
-conda activate open_manus
-```
-
-2. Clone the repository:
-
-```bash
-git clone https://github.com/mannaandpoem/OpenManus.git
-cd OpenManus
-```
-
-3. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Configuration
-
-OpenManus requires configuration for the LLM APIs it uses. Follow these steps to set up your configuration:
-
-1. Create a `config.toml` file in the `config` directory (you can copy from the example):
-
-```bash
-cp config/config.example.toml config/config.toml
-```
-
-2. Edit `config/config.toml` to add your API keys and customize settings:
-
-```toml
-# Global LLM configuration
-[llm]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # Replace with your actual API key
-max_tokens = 4096
-temperature = 0.0
-
-# Optional configuration for specific LLM models
-[llm.vision]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # Replace with your actual API key
-```
-
-## Quick Start
-One line for run OpenManus:
-
-```bash
-python main.py
-```
-
-Then input your idea via terminal!
-
-For unstable version, you also can run:
-
-```bash
-python run_flow.py
-```
-
 ## How to contribute
 We welcome any friendly suggestions and helpful contributions! Just create issues or submit pull requests.
 
@@ -113,130 +48,165 @@ Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quick
 
 OpenManus is built by contributors from MetaGPT. Huge thanks to this agent community!
 
-# Agent System
+# AI Agent System
 
-一个基于TypeScript的代理系统，从Python项目迁移而来。
+A TypeScript-based AI agent system that supports multiple agent types and tool integrations.
 
-## 功能特点
+## Features
 
-- 基于代理的模块化架构
-- 支持多种代理类型
-- 类型安全的API
-- 可扩展的插件系统
+- 🤖 Multiple Agent Types
+  - Base Agent
+  - ReAct Agent
+  - Tool Call Agent
+  - Manus Agent
+  - Search Agent
+  - Text Agent
+  - Data Agent
 
-## 安装
+- 🛠️ Extensible Tools
+  - Chat Completion
+  - Google Search
+  - Browser Interaction
+  - File Operations
+  - Custom Tools Support
+
+- 🔄 Flow Management
+  - Planning Flow
+  - Sequential Flow
+  - Parallel Flow (Coming Soon)
+
+- 🎯 Core Capabilities
+  - Message Management
+  - State Control
+  - Error Handling
+  - Resource Cleanup
+
+## Installation
 
 ```bash
-# 安装依赖
+# Install dependencies
 npm install
 
-# 或使用 yarn
-yarn install
-```
-
-## 使用方法
-
-### 开发模式
-
-```bash
-npm run dev
-```
-
-### 构建项目
-
-```bash
+# Build the project
 npm run build
-```
 
-### 运行项目
-
-```bash
-npm start
-```
-
-### 运行测试
-
-```bash
+# Run tests
 npm test
 ```
 
-## 项目结构
+## Quick Start
+
+```typescript
+import { Manus } from './agent/manus';
+import logger from './utils/logger';
+
+async function main() {
+  try {
+    // Create agent instance
+    const agent = new Manus();
+    await agent.initialize();
+
+    // Run agent
+    const result = await agent.run(
+      'Tell me about the solar system'
+    );
+
+    logger.info(`Result: ${result}`);
+    await agent.cleanup();
+  } catch (error) {
+    logger.error('Error:', error);
+  }
+}
+
+main();
+```
+
+## Configuration
+
+Create a `config/config.json` file:
+
+```json
+{
+  "llm": {
+    "model": "gpt-4",
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "your-api-key",
+    "maxTokens": 4096,
+    "temperature": 0.7
+  }
+}
+```
+
+## Documentation
+
+- [Technical Design](docs/technical-design.md)
+- [Agent System](docs/agents/README.md)
+- [Tool System](docs/tools/README.md)
+- [Flow System](docs/flows/README.md)
+
+## Examples
+
+Check the `src/examples` directory for more usage examples:
+
+- Basic Agent Usage
+- Search Agent
+- Planning Flow
+- Custom Tool Creation
+
+## Development
+
+### Project Structure
 
 ```
 src/
-├── agent/              # 代理模块
-│   ├── base.ts         # 基础代理类
-│   ├── textAgent.ts    # 文本处理代理
-│   ├── agentFactory.ts # 代理工厂
-│   └── index.ts        # 模块导出
-├── utils/              # 工具函数
-│   ├── index.ts        # 通用工具
-│   └── logger.ts       # 日志工具
-└── index.ts            # 应用入口点
+├── agent/        # Agent implementations
+├── tool/         # Tool implementations
+├── flow/         # Flow management
+├── prompt/       # System prompts
+├── schema/       # Data models
+├── utils/        # Utilities
+└── examples/     # Usage examples
 ```
 
-## 代理类型
-
-### BaseAgent
-
-所有代理的基类，提供共享功能：
+### Creating New Agents
 
 ```typescript
-const agent = new BaseAgent({
-  name: 'MyAgent',
-  description: 'A sample agent'
-});
+import { BaseAgent } from './agent/base';
 
-await agent.initialize();
-const result = await agent.run(input);
-await agent.cleanup();
-```
-
-### TextAgent
-
-处理文本输入的代理：
-
-```typescript
-const textAgent = new TextAgent({
-  name: 'TextProcessor',
-  description: 'Processes text input',
-  maxLength: 100,
-  language: 'en'
-});
-
-const result = await textAgent.run('Some text to process');
-```
-
-### 使用代理工厂
-
-```typescript
-import { AgentFactory, AgentType } from './agent/agentFactory';
-
-const agent = AgentFactory.createAgent(
-  AgentType.TEXT,
-  {
-    name: 'FactoryCreatedAgent',
-    maxLength: 200
+export class CustomAgent extends BaseAgent {
+  protected async step(): Promise<string> {
+    // Implement step logic
+    return 'Step result';
   }
-);
+}
 ```
 
-## 扩展方向
+### Adding New Tools
 
-- **Web界面**: 添加基于React或Vue的前端界面
-- **API服务**: 构建RESTful或GraphQL API
-- **插件系统**: 实现可扩展的插件架构
-- **云集成**: 与AWS、Azure或GCP服务集成
-- **实时功能**: 添加WebSocket支持实时通信
+```typescript
+import { BaseTool } from './tool/base';
 
-## 贡献指南
+export class CustomTool extends BaseTool {
+  constructor() {
+    super('custom_tool', 'Tool description', {
+      // Tool parameters schema
+    });
+  }
 
-1. Fork 项目
-2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 创建 Pull Request
+  async execute(args: any): Promise<any> {
+    // Implement tool logic
+  }
+}
+```
 
-## 许可证
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
 
 MIT
